@@ -77,12 +77,6 @@ function makeFaceTexture(image) {
   offCtx.drawImage(image, dx, dy, drawW, drawH);
   offCtx.restore();
 
-  offCtx.lineWidth = 4;
-  offCtx.strokeStyle = "#fff";
-  offCtx.beginPath();
-  offCtx.arc(size / 2, size / 2, size / 2 - 2, 0, Math.PI * 2);
-  offCtx.stroke();
-
   return offscreen;
 }
 
@@ -263,20 +257,13 @@ function drawPipes() {
 function drawBird() {
   if (!state.faceTexture) return;
 
-  const size = state.bird.radius * 2;
+  // Keep collision radius unchanged, but render the face slightly larger.
+  const size = state.bird.radius * 2.5;
 
   ctx.save();
   ctx.translate(state.bird.x, state.bird.y);
   ctx.rotate(state.bird.rotation);
   ctx.drawImage(state.faceTexture, -size / 2, -size / 2, size, size);
-
-  ctx.fillStyle = "#ff9900";
-  ctx.beginPath();
-  ctx.moveTo(size * 0.35, 0);
-  ctx.lineTo(size * 0.72, -7);
-  ctx.lineTo(size * 0.72, 7);
-  ctx.closePath();
-  ctx.fill();
 
   ctx.restore();
 }
