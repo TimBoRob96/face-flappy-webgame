@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Face Flappy</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section id="setup" class="panel">
+        <h1>Face Flappy</h1>
+        <p>Upload a face photo to use as your bird, then press Start Game.</p>
+        <label class="upload" for="faceInput">Choose Face Image</label>
+        <input id="faceInput" type="file" accept="image/*" />
+        <div class="preview-wrap">
+          <canvas id="preview" width="140" height="140" aria-label="Face preview"></canvas>
+        </div>
+        <button id="startBtn" disabled>Start Game</button>
+        <p class="hint">Controls: Space, click, or tap to flap.</p>
+      </section>
+
+      <section id="gameSection" class="hidden">
+        <div class="hud">
+          <span>Score: <strong id="score">0</strong></span>
+          <span>Best: <strong id="best">0</strong></span>
+        </div>
+        <canvas id="game" width="420" height="640" aria-label="Flappy game"></canvas>
+        <div id="overlay" class="overlay hidden">
+          <h2 id="overlayTitle">Game Over</h2>
+          <p id="overlayText">Tap restart to play again.</p>
+          <button id="restartBtn">Restart</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
